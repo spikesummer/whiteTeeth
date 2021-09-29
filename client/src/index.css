@@ -1,0 +1,16 @@
+@import url('http://fonts.google.com/css2?-family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --COR-1: #205072;
+    --COR-2: #329D9C;
+    --COR-3: #56C596;
+    --COR-4: #7BE495;
+    --COR-5: #CFF4D2;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif, monospace;
+}
