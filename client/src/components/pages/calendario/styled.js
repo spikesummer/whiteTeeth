@@ -21,6 +21,7 @@ export const Container = styled.div`
     .month{
         width: 100%;
         height: 8rem;
+        background: rgba(255, 255, 255, 0.4);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -47,6 +48,7 @@ export const Container = styled.div`
         height: 5rem;
         padding: 0 0.4rem;
         display: flex;
+        background: rgba(255, 255, 255, 0.4);
         align-items: center;
     }
     .weekdays div{
@@ -89,6 +91,6 @@ export const Container = styled.div`
         opacity: 0.5;
     }
     .today{
-        background-color: #777;
+        background: rgba(255, 255, 255, 0.4);
     }
 `;
