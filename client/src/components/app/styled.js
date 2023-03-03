@@ -7,7 +7,8 @@ export const Container = styled.div`
     box-sizing: border-box;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(to right, #205072, #329D9C);
+    background: #205072;
+   
     grid-template-columns: 280px 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 'leftSide rightSide';

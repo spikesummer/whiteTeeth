@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    background: #aaa;
+    /* background: #aaa; */
     grid-area: rightSide;
     background: #CFF4D2;
     margin: 15px 15px 15px 0;

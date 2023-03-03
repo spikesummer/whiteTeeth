@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Login from '../login/Login';
 import useToken from './useToken';
 import { Container } from './styled';
-import LeftSide from '../leftSide/LeftSide';
 import Routes from './Routes';
+import LeftSide from '../leftSide/LeftSide';
 
 function App() {
     const { token, setToken } = useToken();
@@ -16,11 +16,8 @@ function App() {
     return (
        <Container>
            <BrowserRouter>
-
                 <LeftSide/>
-
                 <Routes/>
-
            </BrowserRouter>    
        </Container>
     );

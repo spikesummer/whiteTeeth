@@ -1,71 +1,105 @@
-import React from "react";
-import { Container, Main } from './styled';
+import React, { useState, useEffect} from "react";
+import { Container } from './styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Calendario = props => {
+
+    const [ano, setAno] = useState(Number(new Date().getFullYear()));
+    const [mes, setMes] = useState(Number(new Date().getMonth()));
+        
+    useEffect(()=>{
+
+        const monthDays = document.querySelector('.days');
+        const lastDay = new Date(ano, mes + 1, 0).getDate();
+        const prevLastDays = new Date(ano, mes, 0).getDate();
+        const firstDaysIndex = new Date(ano, mes, 1).getDay();
+        const lastDaysIndex = new Date(ano, mes + 1, 0).getDay();
+        const nextDays = 7 - lastDaysIndex - 1;
+    
+        const months = [
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro"
+        ];
+
+        const weekDays = [
+            "Domingo",
+            "Segunda",
+            "Terça",
+            "Quarta",
+            "Quinta",
+            "Sexta",
+            "Sábado"
+        ];
+       
+        document.querySelector('.date h1').innerHTML = months[mes];
+        
+        document.querySelector('.date p').innerHTML = weekDays[new Date().getDay()] + ", " + new Date().getDate() + " de " +  months[new Date().getMonth()] + " de " + new Date().getFullYear();
+        
+        let days = "";
+
+        for(let x = firstDaysIndex; x > 0; x--){
+            days += `<div class="prev-date">${prevLastDays - x + 1}</div>`;
+        }
+
+        for(let i = 1; i <= lastDay; i++){
+            if(i === new Date().getDate() && mes === new Date().getMonth()){
+                days += `<div class="today" data-mes=${mes+1} data-ano=${ano}>${i}</div>`;
+            }else{
+                days += `<div data-mes=${mes+1} data-ano=${ano}>${i}</div>`;
+            }        
+        }
+
+        for(let j = 1; j <= nextDays; j++){
+            days += `<div class="next-date" data-mes=${mes===11?1:mes+2} data-ano=${ano}>${j}</div>`;
+            monthDays.innerHTML = days;
+        }
+  
+    }, [ano, mes])
+    
+    function monthPrev(){
+        mes<1?setMes(11):setMes(mes - 1);
+    };
+
+    function monthNext(){
+        mes>=11?setMes(0):setMes(mes + 1);
+    };
+
     return (
         <Container>
-            <div className="month">
-                <span className="prev"><FontAwesomeIcon icon={faAngleLeft}/></span>
-                <div className="date">
-                    <h1>OUTUBRO</h1>
-                    <p>Terça, 2 de setembro de 2021</p>
+            <div className="top">
+                <div className="month">
+                    <span className="prev"><FontAwesomeIcon icon={faAngleLeft} onClick={monthPrev} /></span>
+                    <div className="date">
+                        <h1></h1>
+                        <p></p>
+                    </div>
+                    <span className="next" onClick={monthNext}><FontAwesomeIcon icon={faAngleRight}/></span>
                 </div>
-                <span className="prev"><FontAwesomeIcon icon={faAngleRight}/></span>
+                <div className="weekdays">
+                    <div>Dom</div>
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                    <div>Sáb</div>
+                </div>
             </div>
-            <div className="weekdays">
-                <div>Dom</div>
-                <div>Seg</div>
-                <div>Ter</div>
-                <div>Qua</div>
-                <div>Qui</div>
-                <div>Sex</div>
-                <div>Sáb</div>
+            <div className="bottom">
+                <div className="days" onClick={(item)=>{console.log(item.target.dataset.ano, item.target.dataset.mes, item.target.innerHTML)}}>
             </div>
-            <div className="days">
-                <div className="prev-date">29</div>
-                <div className="prev-date">30</div>
-                <div className="prev-date">31</div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div className="today">11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-                <div>19</div>
-                <div>20</div>
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-                <div>30</div>
-                <div className="next-date">1</div>
-                <div className="next-date">2</div>
-                <div className="next-date">3</div>
-                <div className="next-date">4</div>
-                <div className="next-date">5</div>
-                <div className="next-date">6</div>
-                <div className="next-date">7</div>
-                <div className="next-date">8</div>
-                <div className="next-date">9</div>
+                
             </div>
         </Container>
     )

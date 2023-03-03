@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Caixa = styled.div`
     background: #aaa;
     grid-area: rightSide;
     background: #CFF4D2;

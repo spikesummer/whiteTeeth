@@ -15,7 +15,7 @@ const LeftSide = (props) => {
         <span>Consultório Odontológico</span>
       </Logo>   
       
-      <Menu/>
+      <Menu path={props}/>
           
     </Container>
   );

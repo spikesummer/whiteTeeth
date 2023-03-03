@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container } from './styled';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faMoneyBillAlt, faCalendarAlt, faUserEdit, faSearch, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faMoneyBillAlt, faCalendarAlt, faUserEdit, faSearch, faCogs, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 const Menu = (props) => {
    const [active, setActive] = useState(1);
@@ -37,12 +37,20 @@ const Menu = (props) => {
                 <li className={active===4?'active':''} onClick={()=>{setActive(4)}}>
                     <b></b>
                     <b></b>
+                    <Link to="/funcionarios"> 
+                        <span className="icon"> <FontAwesomeIcon icon={faUsers} /> </span>
+                        <label> Funcionários </label>
+                    </Link>
+                </li>
+                <li className={active===5?'active':''} onClick={()=>{setActive(5)}}>
+                    <b></b>
+                    <b></b>
                     <Link to="/pesquisar"> 
                         <span className="icon"> <FontAwesomeIcon icon={faSearch} /> </span>
                         <label> Pesquisar </label>
                     </Link>
                 </li>
-                <li className={active===5?'active':''} onClick={()=>{setActive(5)}}>
+                <li className={active===6?'active':''} onClick={()=>{setActive(6)}}>
                     <b></b>
                     <b></b>
                     <Link to="/finances"> 
@@ -50,7 +58,7 @@ const Menu = (props) => {
                         <label> Financeiro </label>
                     </Link>
                 </li>
-                <li className={active===6?'active':''} onClick={()=>{setActive(6)}}>
+                <li className={active===7?'active':''} onClick={()=>{setActive(7)}}>
                     <b></b>
                     <b></b>
                     <Link to="/configuracoes"> 

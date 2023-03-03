@@ -55,7 +55,7 @@ export const Container = styled.div`
         width: 100%;
         height: 100%;
         border-bottom-right-radius: 20px;
-        background: linear-gradient(to right, #01516E, #006E7F);
+        background:  #205072;
     }
 
     li b:nth-child(2){
@@ -74,7 +74,7 @@ export const Container = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to right, #01516E, #006E7F);
+        background:  #205072;
         border-top-right-radius: 20px;
     }
 

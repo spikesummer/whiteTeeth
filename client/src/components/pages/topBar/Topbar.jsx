@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from './styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Topbar = props => {
     return (

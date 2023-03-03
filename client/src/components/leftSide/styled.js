@@ -36,9 +36,8 @@ export const Container = styled.div`
     }
 
     span{
-        color: #205072;
+        color: #476285/*#CFF4D2; #205072;*/ 
         font-weight: 700;
-        /* text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3); */
         font-size: 0.9em;
     }
 `
